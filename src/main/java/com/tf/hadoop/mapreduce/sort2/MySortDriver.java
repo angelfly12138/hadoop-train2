@@ -3,7 +3,9 @@ package com.tf.hadoop.mapreduce.sort2;
  * 自定义排序驱动程序
  */
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapreduce.Job;
@@ -36,6 +38,15 @@ public class MySortDriver extends Configured implements Tool {
         return job.waitForCompletion(true)?0:1;
     }
     public static void main(String[] args) throws Exception {
+        // 创建Configuration
+        Configuration configuration = new Configuration();
+        // 准备清理已存在的输出目录
+        Path outputpath = new Path(args[1]);
+        FileSystem fileSystem = FileSystem.get(configuration);
+        if (fileSystem.exists(outputpath)){
+            fileSystem.delete(outputpath,true);
+            System.out.println("Output file exists,but is has deleted!");
+        }
         int exitCode = ToolRunner.run(new MySortDriver(), args);
         System.exit(exitCode);
     }
