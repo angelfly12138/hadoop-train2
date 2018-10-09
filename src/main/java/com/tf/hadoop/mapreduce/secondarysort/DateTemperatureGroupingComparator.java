@@ -3,6 +3,9 @@ package com.tf.hadoop.mapreduce.secondarysort;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
+/**
+ *  定义如何对键分组
+ */
 public class DateTemperatureGroupingComparator extends WritableComparator {
     public DateTemperatureGroupingComparator(){
         super(DateTemperaturePair.class,true);

@@ -11,6 +11,9 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.Logger;
 
+/**
+ *  驱动器，定义输入、输出，并注册插件类
+ */
 public class SecondarySortDriver extends Configured implements Tool {
     private static Logger theLogger = Logger.getLogger(SecondarySortDriver.class);
     @Override

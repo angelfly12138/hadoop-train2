@@ -3,6 +3,9 @@ package com.tf.hadoop.mapreduce.secondarysort;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;
 
+/**
+ * 定义定制分区器
+ */
 public class DateTemperaturePartitioner extends Partitioner<DateTemperaturePair, Text> {
 
     @Override

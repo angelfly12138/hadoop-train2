@@ -9,6 +9,9 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
+/**
+ *  将日期和温度对 定义为java对象
+ */
 public class DateTemperaturePair implements Writable, WritableComparable<DateTemperaturePair> {
     private final Text yearMonth = new Text();
     private final Text day = new Text();
