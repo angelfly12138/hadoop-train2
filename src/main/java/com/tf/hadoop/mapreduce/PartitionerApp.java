@@ -59,18 +59,19 @@ public class PartitionerApp {
         @Override
         public int getPartition(Text key, LongWritable value, int numPartitions) {
 
-            if(key.toString().equals("xiaomi")) {
-                return 0;
-            }
-
-            if(key.toString().equals("huawei")) {
-                return 1;
-            }
-
-            if(key.toString().equals("iphone")) {
-                return 2;
-            }
-            return 3;
+//            if(key.toString().equals("xiaomi")) {
+//                return 0;
+//            }
+//
+//            if(key.toString().equals("huawei")) {
+//                return 1;
+//            }
+//
+//            if(key.toString().equals("iphone")) {
+//                return 2;
+//            }
+            return  key.hashCode() % numPartitions;
+//            return 3;
         }
     }
 

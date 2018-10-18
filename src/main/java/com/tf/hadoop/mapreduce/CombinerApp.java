@@ -31,10 +31,10 @@ public class CombinerApp {
             String[] words = line.split(" ");
 
             for(String word :  words) {
-                // 通过上下文把map的处理结果输出
-                context.write(new Text(word), one);
-            }
+            // 通过上下文把map的处理结果输出
+            context.write(new Text(word), one);
         }
+    }
     }
     /**
      * Reduce：归并操作
